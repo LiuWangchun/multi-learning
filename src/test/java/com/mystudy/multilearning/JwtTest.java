@@ -3,6 +3,7 @@ package com.mystudy.multilearning;
 import com.mystudy.multilearning.jwt.payload.UserInfo;
 import com.mystudy.multilearning.jwt.util.JwtUtils;
 import com.mystudy.multilearning.jwt.util.RsaUtils;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,9 +20,9 @@ import java.security.PublicKey;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JwtTest {
-    private static final String pubKeyPath = "D:/mystudy/rsa/rsa.pub";
+    private static final String pubKeyPath = "C:\\mystudy\\rsa\\rsa.pub";
 
-    private static final String priKeyPath = "D:/mystudy/rsa/rsa.pri";
+    private static final String priKeyPath = "C:\\mystudy\\rsa\\rsa.pri";
 
     private PublicKey publicKey;
 
@@ -47,7 +48,7 @@ public class JwtTest {
 
     @Test
     public void testParseToken() throws Exception {
-        String token = "eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MjAsInVzZXJOYW1lIjoiamFjayIsImV4cCI6MTUyNzMzMDY5NX0.VpGNedy1z0aR262uAp2sM6xB4ljuxa4fzqyyBpZcGTBNLodIfuCNZkOjdlqf-km6TQPoz3epYf8cc_Rf9snsGdz4YPIwpm6X14JKU9jwL74q6zy61J8Nl9q7Zu3YnLibAvcnC_y9omiqKN8-iCi7-MvM-LwVS7y_Cx9eu0aaY8E";
+        String token = "eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiamFjayIsImV4cCI6MTU1MDQ3MTE3NX0.Lm1YBO9lE687xl7USaUMKZe7Zt7a2hggLiBJCJji-mPTf0wV8hSdMGNDTAFHCHFAWpeXcDk1VcybZWDVC1zTshoqoOhUNAwscBbb0nSePENsF2trVOMsoltcqtAZY2b8xIbArec7ABrlJYw8Oc0_9yDCIlvlFS1NVbZxYe9-MDU";
 
         // 解析token
         UserInfo user = JwtUtils.getInfoFromToken(token, publicKey);
